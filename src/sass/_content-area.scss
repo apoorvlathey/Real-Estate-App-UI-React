@@ -76,6 +76,7 @@
       border-bottom: 2px solid $lightgrey;
       margin-bottom: 20px;
       color: $lightgrey;
+      font-weight: 100;
     }
   }
 
@@ -83,7 +84,7 @@
     margin-bottom: 20px;
 
     .results {
-      color: $lightgrey;
+      color: $darkgrey;
       font-size: 0.8rem;
       display: inline-block;
     }
@@ -116,7 +117,7 @@
 
     .listing {
       background: #fff;
-      width: 33.33%;
+      // width: 33.33%;
       
       -webkit-box-shadow: 0 9px 54px -4px rgba(224,224,224,1);
       -moz-box-shadow: 0 9px 54px -4px rgba(224,224,224,1);
@@ -238,6 +239,26 @@
           }
         }
       }
+
+      .bottom-info {
+        padding: 20px;
+
+        .price {
+          font-size: 1.1rem;
+          display: block;
+          margin-bottom: 10px;
+          color: $darkgrey;
+        }
+        .location {
+          font-size: 1.2rem;
+          display: block;
+          color: $lightgrey;
+
+          .fa {
+            margin-right: 2px;
+          }
+        }
+      }
     }
   }
 }
@@ -257,10 +278,35 @@
   }
 }
 
+#pagination {
+  text-align: center;
+  .pages {
+    display: inline-block;
+    padding: 0;
+
+    -webkit-box-shadow: 0 9px 54px -4px rgba(224,224,224,1);
+    -moz-box-shadow: 0 9px 54px -4px rgba(224,224,224,1);
+    box-shadow: 0 9px 54px -4px rgba(224,224,224,1);
+
+    li {
+      display: inline-block;
+      padding: 20px 30px;
+
+      &:hover,
+      &.active {
+        background: $pink;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .col-md-3 {
   width: 25%;
   display: inline-block;
   vertical-align: top;
+  padding: 0 10px;
 }
 
 .col-md-9 {
