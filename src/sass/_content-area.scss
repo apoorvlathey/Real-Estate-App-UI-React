@@ -126,7 +126,6 @@
       border-radius: 5px;
 
       .listing-img {
-        background: url('https://assets.architecturaldesigns.com/plan_assets/324992268/large/23703JD_01_1553616680.jpg?1553616681') no-repeat center center; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -155,10 +154,13 @@
         }
 
         .address{
+          font-size: 1.3rem;
           position: absolute;
           bottom: 20px;
           opacity: 1;
           transition: all .3s ease-in-out;
+          text-transform: capitalize;
+          text-shadow: 0 1px 5px rgba(0, 0, 0, 1);
         }
 
         .details {
@@ -269,7 +271,7 @@
   font-size: 0.9rem;
   border-radius: 5px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 12px;
   max-width: 150px;
   transition: background 0.3s ease-in-out;
   &:hover {
