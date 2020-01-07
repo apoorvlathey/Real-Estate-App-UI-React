@@ -26,12 +26,14 @@ class App extends React.Component {
       gym: false,
       filteredData: listingsData,
       populateFormsData: '',
-      sortby: 'price-asc'
+      sortby: 'price-asc',
+      view: 'box'
     }
 
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
     this.populateForms = this.populateForms.bind(this)
+    this.changeView = this.changeView.bind(this)
 
   }
 
@@ -59,35 +61,41 @@ class App extends React.Component {
     })
   }
 
+  changeView(viewName) {
+    this.setState({
+      view: viewName
+    })
+  }
+
   filteredData() {
     var newData = this.state.listingsData.filter((item) => {
       return item.price >= this.state.min_price
-          && item.price <= this.state.max_price
-          && item.floorSpace >= this.state.min_floor_space
-          && item.floorSpace <= this.state.max_floor_space
-          && item.rooms >= this.state.bedrooms
+        && item.price <= this.state.max_price
+        && item.floorSpace >= this.state.min_floor_space
+        && item.floorSpace <= this.state.max_floor_space
+        && item.rooms >= this.state.bedrooms
     })
 
-    if(this.state.neighbourhood !== "all") {
+    if (this.state.neighbourhood !== "all") {
       newData = newData.filter(item => (
         item.city === this.state.neighbourhood
       ))
     }
 
-    if(this.state.housetype !== "all") {
+    if (this.state.housetype !== "all") {
       newData = newData.filter(item => (
         item.housetype === this.state.housetype
       ))
     }
 
-    if(this.state.sortby == 'price-asc') {
-      newData = newData.sort((a,b) => {
+    if (this.state.sortby == 'price-asc') {
+      newData = newData.sort((a, b) => {
         return a.price - b.price
       })
     }
 
-    if(this.state.sortby == 'price-dsc') {
-      newData = newData.sort((a,b) => {
+    if (this.state.sortby == 'price-dsc') {
+      newData = newData.sort((a, b) => {
         return b.price - a.price
       })
     }
@@ -141,7 +149,7 @@ class App extends React.Component {
         <Header />
         <section>
           <Filter change={this.change} globalState={this.state} populateAction={this.populateForms} />
-          <Listings listingsData={this.state.filteredData} change={this.change} />
+          <Listings listingsData={this.state.filteredData} change={this.change} globalState={this.state} changeView={this.changeView} />
         </section>
       </div>
     );
