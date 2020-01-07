@@ -26,12 +26,14 @@ class App extends React.Component {
       gym: false,
       filteredData: listingsData,
       populateFormsData: '',
-      sortby: 'price-asc'
+      sortby: 'price-asc',
+      view: 'long'
     }
 
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
     this.populateForms = this.populateForms.bind(this)
+    this.changeView = this.changeView.bind(this)
 
   }
 
@@ -56,6 +58,12 @@ class App extends React.Component {
     }, () => {
       // callback functn executed state change
       this.filteredData()
+    })
+  }
+
+  changeView(viewName) {
+    this.setState({
+      view: viewName
     })
   }
 
@@ -141,7 +149,7 @@ class App extends React.Component {
         <Header />
         <section>
           <Filter change={this.change} globalState={this.state} populateAction={this.populateForms} />
-          <Listings listingsData={this.state.filteredData} change={this.change} />
+          <Listings globalState={this.state} listingsData={this.state.filteredData} change={this.change} changeView={this.changeView} />
         </section>
       </div>
     );
