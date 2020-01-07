@@ -8,7 +8,7 @@ var listingsData = [
     floorSpace: 2000,
     extras: [
       'gym',
-      'swimming_pool'
+      'finished_basement'
     ],
     housetype: 'Ranch',
     image: 'https://img.staticmb.com/mbimages/project/Photo_h310_w462/Project-Photo-19-Global-Apartment-Phase-II-Patna-5093703_345_1366_310_462.jpg'
@@ -22,7 +22,7 @@ var listingsData = [
     floorSpace: 2300,
     extras: [
       'elevator',
-      'gym'
+      'swimming_pool'
     ],
     housetype: 'Apartment',
     image: 'https://q-cf.bstatic.com/images/hotel/max1024x768/914/91481398.jpg'
@@ -35,7 +35,6 @@ var listingsData = [
     price: 170000,
     floorSpace: 900,
     extras: [
-      'elevator',
       'gym'
     ],
     housetype: 'Ranch',
@@ -50,7 +49,8 @@ var listingsData = [
     floorSpace: 1770,
     extras: [
       'elevator',
-      'gym'
+      'gym',
+      'finished_basement'
     ],
     housetype: 'Studio',
     image: 'https://cdngeneral.rentcafe.com/dmslivecafe/3/455120/Main-Genesee-1(2).jpg?quality=85&scale=both'
