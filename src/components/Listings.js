@@ -103,10 +103,10 @@ export class Listings extends Component {
     return (
       <section id="listings">
         <section className="search-area">
-          <input type="text" name="search" />
+          <input type="text" name="search" placeholder="Search here..." onChange={this.props.change} />
         </section>
         <section className="sortby-area">
-          <div className="results">390 results found</div>
+          <div className="results">{this.props.globalState.filteredData.length} results found</div>
           <div className="sort-options">
             <select name="sortby" className="sortby" onChange={this.props.change}>
               <option value="price-asc">Lowest Price</option>

@@ -7,8 +7,8 @@ var listingsData = [
     price: 220000,
     floorSpace: 2000,
     extras: [
-      'elevator',
-      'gym'
+      'gym',
+      'swimming_pool'
     ],
     housetype: 'Ranch',
     image: 'https://img.staticmb.com/mbimages/project/Photo_h310_w462/Project-Photo-19-Global-Apartment-Phase-II-Patna-5093703_345_1366_310_462.jpg'

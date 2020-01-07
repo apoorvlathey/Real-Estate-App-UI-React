@@ -76,7 +76,17 @@
       border-bottom: 2px solid $lightgrey;
       margin-bottom: 20px;
       color: $lightgrey;
-      font-weight: 100;
+      font-weight: 500;
+
+      &::-webkit-input-placeholder { /* Edge */
+        color: $lightgrey;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer */
+        color: $lightgrey;
+      }
+      &::placeholder {
+        color: $lightgrey;
+      }
     }
   }
 
@@ -113,7 +123,7 @@
     }
   }
   .listings-results {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     .listing {
       background: #fff;
@@ -309,6 +319,7 @@
   display: inline-block;
   vertical-align: top;
   padding: 0 10px;
+  margin-bottom: 15px;
   transition: all .3s ease-in;
 }
 

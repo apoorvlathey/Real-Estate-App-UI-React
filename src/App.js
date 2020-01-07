@@ -27,7 +27,8 @@ class App extends React.Component {
       filteredData: listingsData,
       populateFormsData: '',
       sortby: 'price-asc',
-      view: 'box'
+      view: 'box',
+      search: ''
     }
 
     this.change = this.change.bind(this)
@@ -97,6 +98,42 @@ class App extends React.Component {
     if (this.state.sortby == 'price-dsc') {
       newData = newData.sort((a, b) => {
         return b.price - a.price
+      })
+    }
+
+    if(this.state.search !== '') {
+      newData = newData.filter(item => {
+        var city = item.city.toLowerCase()
+        var searchText = this.state.search.toLowerCase()
+        
+        if(city.match(searchText) !== null) {
+          return true
+        }
+
+      })
+    }
+
+    if (this.state.elevator) {
+      newData = newData.filter(item => {
+        return item.extras.includes('elevator')
+      })
+    }
+
+    if (this.state.swimming_pool) {
+      newData = newData.filter(item => {
+        return item.extras.includes('swimming_pool')
+      })
+    }
+
+    if (this.state.finished_basement) {
+      newData = newData.filter(item => {
+        return item.extras.includes('finished_basement')
+      })
+    }
+
+    if (this.state.gym) {
+      newData = newData.filter(item => {
+        return item.extras.includes('gym')
       })
     }
 
