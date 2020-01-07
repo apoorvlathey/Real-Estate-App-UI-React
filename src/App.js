@@ -25,7 +25,8 @@ class App extends React.Component {
       finished_basement: false,
       gym: false,
       filteredData: listingsData,
-      populateFormsData: ''
+      populateFormsData: '',
+      sortby: 'price-asc'
     }
 
     this.change = this.change.bind(this)
@@ -33,6 +34,19 @@ class App extends React.Component {
     this.populateForms = this.populateForms.bind(this)
 
   }
+
+  componentWillMount() {
+
+    // arrange according to their price
+    var listingsData = this.state.listingsData.sort((a, b) => {
+      return a.price - b.price
+    })
+
+    this.setState({
+      listingsData
+    })
+  }
+
   change(event) {
     var name = event.target.name
     var value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value
@@ -66,6 +80,18 @@ class App extends React.Component {
       ))
     }
 
+    if(this.state.sortby == 'price-asc') {
+      newData = newData.sort((a,b) => {
+        return a.price - b.price
+      })
+    }
+
+    if(this.state.sortby == 'price-dsc') {
+      newData = newData.sort((a,b) => {
+        return b.price - a.price
+      })
+    }
+
     this.setState({
       filteredData: newData
     })
@@ -80,6 +106,8 @@ class App extends React.Component {
     cities = new Set(cities) /* !! Removes Duplicate Entries. Only Unique left !! */
     cities = [...cities]
 
+    cities = cities.sort()
+
     //housetypes
     var housetypes = this.state.listingsData.map(item => (
       item.housetype
@@ -87,12 +115,16 @@ class App extends React.Component {
     housetypes = new Set(housetypes)
     housetypes = [...housetypes]
 
+    housetypes = housetypes.sort()
+
     //bedrooms
     var bedrooms = this.state.listingsData.map(item => (
       item.rooms
     ))
     bedrooms = new Set(bedrooms)
     bedrooms = [...bedrooms]
+
+    bedrooms = bedrooms.sort()
 
     this.setState({
       populateFormsData: {
@@ -104,13 +136,12 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.listingsData)
     return (
       <div className="App">
         <Header />
         <section>
           <Filter change={this.change} globalState={this.state} populateAction={this.populateForms} />
-          <Listings listingsData={this.state.filteredData} />
+          <Listings listingsData={this.state.filteredData} change={this.change} />
         </section>
       </div>
     );
