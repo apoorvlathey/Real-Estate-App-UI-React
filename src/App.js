@@ -24,11 +24,14 @@ class App extends React.Component {
       swimming_pool: false,
       finished_basement: false,
       gym: false,
-      filteredData: listingsData
+      filteredData: listingsData,
+      populateFormsData: ''
     }
 
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
+    this.populateForms = this.populateForms.bind(this)
+
   }
   change(event) {
     var name = event.target.name
@@ -68,13 +71,45 @@ class App extends React.Component {
     })
   }
 
+  populateForms() {
+
+    //neighbourhoods
+    var cities = this.state.listingsData.map(item => (
+      item.city
+    ))
+    cities = new Set(cities) /* !! Removes Duplicate Entries. Only Unique left !! */
+    cities = [...cities]
+
+    //housetypes
+    var housetypes = this.state.listingsData.map(item => (
+      item.housetype
+    ))
+    housetypes = new Set(housetypes)
+    housetypes = [...housetypes]
+
+    //bedrooms
+    var bedrooms = this.state.listingsData.map(item => (
+      item.rooms
+    ))
+    bedrooms = new Set(bedrooms)
+    bedrooms = [...bedrooms]
+
+    this.setState({
+      populateFormsData: {
+        housetypes,
+        bedrooms,
+        cities
+      }
+    })
+  }
+
   render() {
     console.log(this.state.listingsData)
     return (
       <div className="App">
         <Header />
         <section>
-          <Filter change={this.change} globalState={this.state} />
+          <Filter change={this.change} globalState={this.state} populateAction={this.populateForms} />
           <Listings listingsData={this.state.filteredData} />
         </section>
       </div>
