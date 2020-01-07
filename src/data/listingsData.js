@@ -10,7 +10,7 @@ var listingsData = [
       'elevator',
       'gym'
     ],
-    houseType: 'Apartment',
+    housetype: 'Ranch',
     image: 'https://img.staticmb.com/mbimages/project/Photo_h310_w462/Project-Photo-19-Global-Apartment-Phase-II-Patna-5093703_345_1366_310_462.jpg'
   },
   {
@@ -24,7 +24,7 @@ var listingsData = [
       'elevator',
       'gym'
     ],
-    houseType: 'Apartment',
+    housetype: 'Apartment',
     image: 'https://q-cf.bstatic.com/images/hotel/max1024x768/914/91481398.jpg'
   },
   {
@@ -38,7 +38,7 @@ var listingsData = [
       'elevator',
       'gym'
     ],
-    houseType: 'Apartment',
+    housetype: 'Ranch',
     image: 'https://images.adsttc.com/media/images/59af/7a79/b22e/38b8/4100/00ed/medium_jpg/1.jpg?1504672368'
   },
   {
@@ -52,7 +52,7 @@ var listingsData = [
       'elevator',
       'gym'
     ],
-    houseType: 'Apartment',
+    housetype: 'Studio',
     image: 'https://cdngeneral.rentcafe.com/dmslivecafe/3/455120/Main-Genesee-1(2).jpg?quality=85&scale=both'
   },
   {
@@ -66,7 +66,7 @@ var listingsData = [
       'elevator',
       'gym'
     ],
-    houseType: 'Apartment',
+    housetype: 'Studio',
     image: 'https://assets.architecturaldesigns.com/plan_assets/324992268/large/23703JD_01_1553616680.jpg?1553616681'
   }
 ]
