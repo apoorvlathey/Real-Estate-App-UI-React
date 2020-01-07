@@ -17,7 +17,7 @@ export class Filter extends Component {
 
   // !!! MAKE SURE TO BIND THIS WITH EACH FUNCTION IN CONSTRUCTOR
   cities() {
-    if (this.props.globalState.populateFormsData.cities != undefined) {
+    if (this.props.globalState.populateFormsData.cities !== undefined) {
       const { cities } = this.props.globalState.populateFormsData
       return cities.map(item => {
         return (
@@ -27,7 +27,7 @@ export class Filter extends Component {
     }
   }
   housetypes() {
-    if (this.props.globalState.populateFormsData.housetypes != undefined) {
+    if (this.props.globalState.populateFormsData.housetypes !== undefined) {
       const { housetypes } = this.props.globalState.populateFormsData
       return housetypes.map(item => {
         return (
@@ -37,7 +37,7 @@ export class Filter extends Component {
     }
   }
   bedrooms() {
-    if (this.props.globalState.populateFormsData.bedrooms != undefined) {
+    if (this.props.globalState.populateFormsData.bedrooms !== undefined) {
       const { bedrooms } = this.props.globalState.populateFormsData
       return bedrooms.map(item => {
         return (

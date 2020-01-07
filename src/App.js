@@ -89,13 +89,13 @@ class App extends React.Component {
       ))
     }
 
-    if (this.state.sortby == 'price-asc') {
+    if (this.state.sortby === 'price-asc') {
       newData = newData.sort((a, b) => {
         return a.price - b.price
       })
     }
 
-    if (this.state.sortby == 'price-dsc') {
+    if (this.state.sortby === 'price-dsc') {
       newData = newData.sort((a, b) => {
         return b.price - a.price
       })
@@ -108,6 +108,8 @@ class App extends React.Component {
         
         if(city.match(searchText) !== null) {
           return true
+        } else {
+          return false
         }
 
       })
